@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   root "hello_world#index"
   get "hello_world", to: "hello_world#index"
   get "heavy_markdown_editor", to: "heavy_markdown_editor#index"
+  get "rsc_markdown_page", to: "rsc_markdown_page#index"
 end
