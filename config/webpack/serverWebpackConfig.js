@@ -5,6 +5,7 @@ const { merge, config } = require('shakapacker');
 const commonWebpackConfig = require('./commonWebpackConfig');
 
 const webpack = require('webpack');
+const { RSCWebpackPlugin } = require('react-on-rails-rsc/WebpackPlugin');
 
 const configureServer = () => {
   // We need to use "merge" because the clientConfigObject, EVEN after running
@@ -111,6 +112,9 @@ const configureServer = () => {
   // break with SSR. The fix is to use a node renderer and change the target.
   // If using the React on Rails Pro node server renderer, uncomment the next line
   // serverWebpackConfig.target = 'node'
+
+  // Add React Server Components plugin for server bundle
+  serverWebpackConfig.plugins.push(new RSCWebpackPlugin({ isServer: true }));
 
   return serverWebpackConfig;
 };

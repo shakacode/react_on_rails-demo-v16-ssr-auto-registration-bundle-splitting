@@ -49,6 +49,9 @@ ReactOnRails.configure do |config|
   #
   config.server_bundle_js_file = "server-bundle.js"
 
+  # React Server Components bundle file
+  config.rsc_bundle_js_file = "rsc-bundle.js"
+
   ################################################################################
   ################################################################################
   # FILE SYSTEM BASED COMPONENT REGISTRY
