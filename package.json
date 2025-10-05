@@ -17,6 +17,7 @@
     "@babel/preset-env": "^7.28.3",
     "@babel/preset-react": "^7.27.1",
     "@babel/runtime": "^7.28.4",
+    "@shakacode-tools/react-on-rails-pro-node-renderer": "^4.0.0",
     "@types/babel__core": "^7.20.5",
     "@types/webpack": "^5.28.5",
     "babel-loader": "^8.4.1",
