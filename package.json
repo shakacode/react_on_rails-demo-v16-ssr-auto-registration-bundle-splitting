@@ -31,6 +31,7 @@
     "react-dom": "^19.1.1",
     "react-markdown": "^10.1.0",
     "react-on-rails": "^16.1.1",
+    "react-on-rails-rsc": "^19.0.2",
     "remark-gfm": "^4.0.1",
     "shakapacker": "8.4.0",
     "style-loader": "^4.0.0",

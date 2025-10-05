@@ -57,3 +57,6 @@ group :test do
 end
 gem "shakapacker", "~> 8.3"
 gem "react_on_rails", "~> 16.1.1"
+
+# Using local path for development - change to GitHub packages for production
+gem "react_on_rails_pro", path: "/home/ihab/ihab/work/shakacode/react_on_rails/react_on_rails_pro"
