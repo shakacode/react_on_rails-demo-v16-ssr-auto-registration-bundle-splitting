@@ -1,31 +1,29 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import MarkdownViewer from '../../MarkdownViewer/ror_components/MarkdownViewer';
 import * as style from './HeavyMarkdownEditor.module.css';
-
-// Import markdown components for client-side only
-let ReactMarkdown, remarkGfm;
 
 const HeavyMarkdownEditor = (props) => {
   const [markdown, setMarkdown] = useState(props.initialText || '# Start editing markdown here...');
   const [isLoaded, setIsLoaded] = useState(false);
-  const [MarkdownComponent, setMarkdownComponent] = useState(null);
+  const [processedHtml, setProcessedHtml] = useState('');
 
   useEffect(() => {
     const loadMarkdown = async () => {
       try {
-        const [{ default: ReactMarkdownComp }, { default: remarkGfmComp }] = await Promise.all([
+        const [{ default: ReactMarkdown }, { default: remarkGfm }, { renderToString }] = await Promise.all([
           import('react-markdown'),
-          import('remark-gfm')
+          import('remark-gfm'),
+          import('react-dom/server')
         ]);
-        
-        const Component = ({ children }) => (
-          <ReactMarkdownComp remarkPlugins={[remarkGfmComp]}>
-            {children}
-          </ReactMarkdownComp>
+
+        // Convert markdown to HTML using react-markdown, then use shared MarkdownViewer
+        const htmlString = renderToString(
+          React.createElement(ReactMarkdown, { remarkPlugins: [remarkGfm] }, markdown)
         );
-        
-        setMarkdownComponent(() => Component);
+
+        setProcessedHtml(htmlString);
         setIsLoaded(true);
       } catch (error) {
         console.warn('Failed to load markdown components:', error);
@@ -34,7 +32,7 @@ const HeavyMarkdownEditor = (props) => {
     };
 
     loadMarkdown();
-  }, []);
+  }, [markdown]);
 
   // Skeleton loader component that fills the preview space properly  
   const SkeletonLoader = () => (
@@ -131,9 +129,9 @@ const HeavyMarkdownEditor = (props) => {
               boxSizing: 'border-box'
             }}
           >
-            {isLoaded && MarkdownComponent ? (
+            {processedHtml ? (
               <div className={`${style.contentTransition} ${style.fadeIn}`}>
-                <MarkdownComponent>{markdown}</MarkdownComponent>
+                <MarkdownViewer processedHtml={processedHtml} />
               </div>
             ) : isLoaded ? (
               <div className={`${style.contentTransition} ${style.fadeIn}`}>
