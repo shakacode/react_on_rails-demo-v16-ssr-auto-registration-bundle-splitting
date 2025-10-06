@@ -48,9 +48,6 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-
-  # Foreman for managing dev processes (temporary - consider foreman gem or system install)
-  gem "foreman"
 end
 
 group :test do

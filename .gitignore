@@ -55,6 +55,3 @@ yarn-debug.log*
 
 # npm credentials
 .npmrc
-
-# Audit and analysis files
-RSC_CONFIG_AUDIT.md
