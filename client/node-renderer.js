@@ -6,7 +6,7 @@ const { env } = process;
 
 const config = {
   // Bundle path where webpack outputs the bundles
-  bundlePath: path.resolve(__dirname, '../public/packs'),
+  bundlePath: path.resolve(__dirname, '../ssr-generated'),
 
   // Listen at RENDERER_PORT env value or default port 3800
   port: env.RENDERER_PORT || 3800,
