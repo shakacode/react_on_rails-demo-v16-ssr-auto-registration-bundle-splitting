@@ -1,14 +1,3 @@
-PATH
-  remote: /home/ihab/ihab/work/shakacode/react_on_rails/react_on_rails_pro
-  specs:
-    react_on_rails_pro (4.0.0)
-      addressable
-      connection_pool
-      execjs (~> 2.9)
-      httpx (~> 1.5)
-      rainbow
-      react_on_rails (>= 16.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -383,6 +372,17 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.7.3)
+
+GEM
+  remote: https://rubygems.pkg.github.com/shakacode-tools/
+  specs:
+    react_on_rails_pro (4.0.0)
+      addressable
+      connection_pool
+      execjs (~> 2.9)
+      httpx (~> 1.5)
+      rainbow
+      react_on_rails (>= 14.1.0)
 
 PLATFORMS
   aarch64-linux
