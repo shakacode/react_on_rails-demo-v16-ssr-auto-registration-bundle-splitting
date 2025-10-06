@@ -153,12 +153,15 @@ const HeavyMarkdownEditor = (props) => {
         <a href="/hello_world" className={style.link}>
           ← Back to Lightweight HelloWorld
         </a>
+        <a href="/rsc_markdown_page" className={style.link}>
+          → Try RSC Markdown Page
+        </a>
         <div className={style.bundleInfo}>
           <strong>Bundle Impact:</strong> Heavy component with markdown libraries (~120KB transferred, 385KB resources in production)
         </div>
         {props.title && (
           <div className={style.bundleInfo} style={{marginTop: '0.5rem', fontSize: '0.85rem'}}>
-            <strong>Content:</strong> {props.title} 
+            <strong>Content:</strong> {props.title}
             {props.author && <> by {props.author}</>}
             {props.lastModified && <> (updated {new Date(props.lastModified).toLocaleDateString()})</>}
           </div>
