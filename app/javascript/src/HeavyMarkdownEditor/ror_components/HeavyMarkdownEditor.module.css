@@ -134,7 +134,7 @@
   font-weight: bold;
 }
 
-.preview ul li[data-task] {
+.preview ul li.task-list-item {
   list-style: none;
   margin-left: -1rem;
 }
